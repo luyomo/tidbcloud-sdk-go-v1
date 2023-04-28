@@ -33,10 +33,10 @@ tidbcloud-sdk-go-v1 is the TiDB Cloud SDK for the Go programming language. It im
           ```
 ## Hello world
 Please follow the examples for API usage.
-      ```
-      workstation$ cd examples/ListProjects
-      workstation$ go run main.go
-      id                   Name           AwsCmekEnabled  ClusterCount  CreateTimestamp  OrgId
-      --                   ----           --------------  ------------  ---------------  -----
-      1111111111111111111  ProjectName    false           1             1678671443       2222222222222222222
-      ```
+```
+workstation$ cd examples/ListProjects
+workstation$ go run main.go
+id                   Name           AwsCmekEnabled  ClusterCount  CreateTimestamp  OrgId
+--                   ----           --------------  ------------  ---------------  -----
+1111111111111111111  ProjectName    false           1             1678671443       2222222222222222222
+```

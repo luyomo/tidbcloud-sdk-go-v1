@@ -19,11 +19,11 @@ func main() {
         panic(err)
     }
 
-    var clusterInfo [][]string
-    clusterInfo = append(clusterInfo, []string{"id", "Name", "AwsCmekEnabled", "ClusterCount", "CreateTimestamp", "OrgId"})
+    var projectInfo [][]string
+    projectInfo = append(projectInfo, []string{"id", "Name", "AwsCmekEnabled", "ClusterCount", "CreateTimestamp", "OrgId"})
     for _, item := range response.JSON200.Items {
-        clusterInfo = append(clusterInfo, []string{*item.Id, *item.Name, fmt.Sprintf("%t", *item.AwsCmekEnabled), fmt.Sprintf("%d", *item.ClusterCount), *item.CreateTimestamp, *item.OrgId})
+        projectInfo = append(projectInfo, []string{*item.Id, *item.Name, fmt.Sprintf("%t", *item.AwsCmekEnabled), fmt.Sprintf("%d", *item.ClusterCount), *item.CreateTimestamp, *item.OrgId})
     }
 
-    tui.PrintTable(clusterInfo, true) 
+    tui.PrintTable(projectInfo, true) 
 }

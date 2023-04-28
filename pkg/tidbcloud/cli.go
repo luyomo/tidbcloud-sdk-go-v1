@@ -850,7 +850,8 @@ func (c *Client) ListProviderRegions(ctx context.Context, reqEditors ...RequestE
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) ListProjects(ctx context.Context, params *ListProjectsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -862,7 +863,7 @@ func (c *Client) ListProjects(ctx context.Context, params *ListProjectsParams, r
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	//return c.Client.Do(req)
+	// return c.Client.Do(req)
     return c.AddDigestHeader(req)
 }
 
@@ -875,7 +876,8 @@ func (c *Client) CreateProjectWithBody(ctx context.Context, contentType string, 
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateProject(ctx context.Context, body CreateProjectJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -887,7 +889,8 @@ func (c *Client) CreateProject(ctx context.Context, body CreateProjectJSONReques
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) ListAwsCmek(ctx context.Context, projectId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -899,7 +902,8 @@ func (c *Client) ListAwsCmek(ctx context.Context, projectId string, reqEditors .
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateAwsCmekWithBody(ctx context.Context, projectId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -911,7 +915,8 @@ func (c *Client) CreateAwsCmekWithBody(ctx context.Context, projectId string, co
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateAwsCmek(ctx context.Context, projectId string, body CreateAwsCmekJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -923,7 +928,8 @@ func (c *Client) CreateAwsCmek(ctx context.Context, projectId string, body Creat
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) ListClustersOfProject(ctx context.Context, projectId string, params *ListClustersOfProjectParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -935,7 +941,8 @@ func (c *Client) ListClustersOfProject(ctx context.Context, projectId string, pa
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateClusterWithBody(ctx context.Context, projectId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -947,7 +954,8 @@ func (c *Client) CreateClusterWithBody(ctx context.Context, projectId string, co
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateCluster(ctx context.Context, projectId string, body CreateClusterJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -959,7 +967,8 @@ func (c *Client) CreateCluster(ctx context.Context, projectId string, body Creat
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) DeleteCluster(ctx context.Context, projectId string, clusterId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -971,7 +980,8 @@ func (c *Client) DeleteCluster(ctx context.Context, projectId string, clusterId 
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) GetCluster(ctx context.Context, projectId string, clusterId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -983,7 +993,8 @@ func (c *Client) GetCluster(ctx context.Context, projectId string, clusterId str
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) UpdateClusterWithBody(ctx context.Context, projectId string, clusterId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -995,7 +1006,8 @@ func (c *Client) UpdateClusterWithBody(ctx context.Context, projectId string, cl
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) UpdateCluster(ctx context.Context, projectId string, clusterId string, body UpdateClusterJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1007,7 +1019,8 @@ func (c *Client) UpdateCluster(ctx context.Context, projectId string, clusterId 
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) ListBackUpOfCluster(ctx context.Context, projectId string, clusterId string, params *ListBackUpOfClusterParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1019,7 +1032,8 @@ func (c *Client) ListBackUpOfCluster(ctx context.Context, projectId string, clus
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateBackupWithBody(ctx context.Context, projectId string, clusterId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1031,7 +1045,8 @@ func (c *Client) CreateBackupWithBody(ctx context.Context, projectId string, clu
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateBackup(ctx context.Context, projectId string, clusterId string, body CreateBackupJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1043,7 +1058,8 @@ func (c *Client) CreateBackup(ctx context.Context, projectId string, clusterId s
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) DeleteBackup(ctx context.Context, projectId string, clusterId string, backupId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1055,7 +1071,8 @@ func (c *Client) DeleteBackup(ctx context.Context, projectId string, clusterId s
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) GetBackupOfCluster(ctx context.Context, projectId string, clusterId string, backupId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1067,7 +1084,8 @@ func (c *Client) GetBackupOfCluster(ctx context.Context, projectId string, clust
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) ListImportTasks(ctx context.Context, projectId string, clusterId string, params *ListImportTasksParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1079,7 +1097,8 @@ func (c *Client) ListImportTasks(ctx context.Context, projectId string, clusterI
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateImportTaskWithBody(ctx context.Context, projectId string, clusterId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1091,7 +1110,8 @@ func (c *Client) CreateImportTaskWithBody(ctx context.Context, projectId string,
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateImportTask(ctx context.Context, projectId string, clusterId string, body CreateImportTaskJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1103,7 +1123,8 @@ func (c *Client) CreateImportTask(ctx context.Context, projectId string, cluster
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) PreviewImportDataWithBody(ctx context.Context, projectId string, clusterId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1115,7 +1136,8 @@ func (c *Client) PreviewImportDataWithBody(ctx context.Context, projectId string
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) PreviewImportData(ctx context.Context, projectId string, clusterId string, body PreviewImportDataJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1127,7 +1149,8 @@ func (c *Client) PreviewImportData(ctx context.Context, projectId string, cluste
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) GetImportTaskRoleInfo(ctx context.Context, projectId string, clusterId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1139,7 +1162,8 @@ func (c *Client) GetImportTaskRoleInfo(ctx context.Context, projectId string, cl
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) UploadLocalFileWithBody(ctx context.Context, projectId string, clusterId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1151,7 +1175,8 @@ func (c *Client) UploadLocalFileWithBody(ctx context.Context, projectId string, 
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) UploadLocalFile(ctx context.Context, projectId string, clusterId string, body UploadLocalFileJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1163,7 +1188,8 @@ func (c *Client) UploadLocalFile(ctx context.Context, projectId string, clusterI
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) GetImportTask(ctx context.Context, projectId string, clusterId string, importId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1175,7 +1201,8 @@ func (c *Client) GetImportTask(ctx context.Context, projectId string, clusterId 
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) UpdateImportTaskWithBody(ctx context.Context, projectId string, clusterId string, importId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1187,7 +1214,8 @@ func (c *Client) UpdateImportTaskWithBody(ctx context.Context, projectId string,
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) UpdateImportTask(ctx context.Context, projectId string, clusterId string, importId string, body UpdateImportTaskJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1199,7 +1227,8 @@ func (c *Client) UpdateImportTask(ctx context.Context, projectId string, cluster
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) ListRestoreTasks(ctx context.Context, projectId string, params *ListRestoreTasksParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1211,7 +1240,8 @@ func (c *Client) ListRestoreTasks(ctx context.Context, projectId string, params 
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateRestoreTaskWithBody(ctx context.Context, projectId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1223,7 +1253,8 @@ func (c *Client) CreateRestoreTaskWithBody(ctx context.Context, projectId string
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) CreateRestoreTask(ctx context.Context, projectId string, body CreateRestoreTaskJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1235,7 +1266,8 @@ func (c *Client) CreateRestoreTask(ctx context.Context, projectId string, body C
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 func (c *Client) GetRestoreTask(ctx context.Context, projectId string, restoreId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -1247,7 +1279,8 @@ func (c *Client) GetRestoreTask(ctx context.Context, projectId string, restoreId
 	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
 		return nil, err
 	}
-	return c.Client.Do(req)
+	// return c.Client.Do(req)
+    return c.AddDigestHeader(req)
 }
 
 // NewListProviderRegionsRequest generates requests for ListProviderRegions

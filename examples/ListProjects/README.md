@@ -1,0 +1,8 @@
+# How to run the example
+```
+workstation$ cd tidbcloud-sdk-go-v1/examples/ListProjects
+workstation$ go run main.go
+id                   Name           AwsCmekEnabled  ClusterCount  CreateTimestamp  OrgId
+--                   ----           --------------  ------------  ---------------  -----
+1111111111111111111  ProjectName    false           1             1678671443       2222222222222222222
+```

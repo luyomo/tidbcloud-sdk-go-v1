@@ -135,16 +135,10 @@ func (d *DigestHeaders) ApplyAuth(req *http.Request) {
 }
 
 func(c *Client)AddDigestHeader(req *http.Request) (*http.Response, error) {
-	// jar := &myjar{}
-	// jar.jar = make(map[string][]*http.Cookie)
-	// c.Client.Jar = jar
-
     name, password, err := c.ReadCredentials()
     if err != nil {
         return nil, err
     }
-    fmt.Printf("Name: <%s> \n", name)
-    fmt.Printf("Password: <%s> \n", password)
 
 	resp, err := c.Client.Do(req)
 	if err != nil {
@@ -153,11 +147,6 @@ func(c *Client)AddDigestHeader(req *http.Request) (*http.Response, error) {
     
     // 02. If failed as unauthorized request
 	if resp.StatusCode == 401 {
-
-        // 01. Config file
-        // 02. Get parameters from environment variables
-
-        // 03. Parse result from request and prepare digest header
 		authn := digestAuthParams(resp)
 		algorithm := authn["algorithm"]
 		d := &DigestHeaders{}
@@ -175,11 +164,9 @@ func(c *Client)AddDigestHeader(req *http.Request) (*http.Response, error) {
 		d.Username = name
 		d.Password = password
 
-        // 04. Set the auth into request
-		// req, err = http.NewRequest("GET", uri, nil)
 		d.ApplyAuth(req)
 
-        // 05. Send second request
+        // Send second request
 		resp, err = c.Client.Do(req)
 		if err != nil {
 			log.Fatal(err)
@@ -188,13 +175,6 @@ func(c *Client)AddDigestHeader(req *http.Request) (*http.Response, error) {
 			d = &DigestHeaders{}
 			err = fmt.Errorf("response status code was %v", resp.StatusCode)
 		}
-        // fmt.Printf("RESP: <%#v> \n", resp.Body)
-
-        //b, err := io.ReadAll(resp.Body)
-        //if err != nil {
-        //    log.Fatalln(err)
-        //}
-        // fmt.Println(string(b))
 
 		return resp, err
     }

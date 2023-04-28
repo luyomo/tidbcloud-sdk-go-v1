@@ -21,7 +21,7 @@ tidbcloud-sdk-go-v1 is the TiDB Cloud SDK for the Go programming language. It im
       - Config the credentials into customized file
           ```
           workstation$ export TIDBCLOUD_CREDENTIAL_FILE=/tmp/credentials
-          workstation$ more ~/credentials
+          workstation$ more /tmp/credentials
           [credential]
           public_key=xxxxxxxx
           private_key=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 

@@ -8,9 +8,9 @@ Translations:
 ## Overview
 tidbcloud-sdk-go-v1 is the TiDB Cloud SDK for the Go programming language. It implements [TiDB Cloud API](https://docs.pingcap.com/tidbcloud/api/v1beta).
 
-### Hello world
+## Credentials setup
   + Once you register one TiDB Cloud account, please follow the [TiDB Cloud document](https://docs.pingcap.com/tidbcloud/api-overview) to get the API key.
-  + Set the credential config file as below. 
+  + Set the credential for SDK as below. There are three ways to setup the credentials.
       - Config the credentials into default file
           ```
           workstation$ more ~/.tidbcloud/credentials
@@ -31,7 +31,8 @@ tidbcloud-sdk-go-v1 is the TiDB Cloud SDK for the Go programming language. It im
           workstation$ export TIDBCLOUD_PUBLIC_KEY=xxxxxxxx
           workstation$ export TIDBCLOUD_PRIVATE_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
           ```
-  + Run first example
+## Hello world
+Please follow the examples for API usage.
       ```
       workstation$ cd examples/ListProjects
       workstation$ go run main.go

@@ -2,18 +2,24 @@ package main
 
 import (
     "context"
+    "os"
 
     "github.com/luyomo/tidbcloud-sdk-go-v1/pkg/tidbcloud"
     "github.com/pingcap/tiup/pkg/tui"
 )
 
 func main() {
+    projectID := os.Getenv("TIDBCLOUD_PROJECT_ID")
+    if projectID == "" {
+        panic("No project id is specified")
+    }
+
     client, err := tidbcloud.NewDigestClientWithResponses()
     if err != nil {
         panic(err)
     }
 
-    response, err := client.ListClustersOfProjectWithResponse(context.Background(), "1111111111111111111",  &tidbcloud.ListClustersOfProjectParams{})
+    response, err := client.ListClustersOfProjectWithResponse(context.Background(), projectID,  &tidbcloud.ListClustersOfProjectParams{})
     if err != nil {
         panic(err)
     }

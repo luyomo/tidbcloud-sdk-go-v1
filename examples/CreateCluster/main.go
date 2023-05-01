@@ -2,6 +2,7 @@ package main
 
 import (
     "context"
+    "os"
 
     "github.com/luyomo/tidbcloud-sdk-go-v1/pkg/tidbcloud"
     "github.com/aws/smithy-go/ptr"
@@ -9,6 +10,12 @@ import (
 )
 
 func main() {
+
+    projectID := os.Getenv("TIDBCLOUD_PROJECT_ID")
+    if projectID == "" {
+        panic("No project id is specified")
+    }
+
     client, err := tidbcloud.NewDigestClientWithResponses()
     if err != nil {
         panic(err)
@@ -59,7 +66,7 @@ func main() {
 
     var clusterInfo [][]string
     clusterInfo = append(clusterInfo, []string{"id", "Message"})
-    response, err := client.CreateClusterWithResponse(context.Background(), "1111111111111111111",  createClusterJSONRequestBody)
+    response, err := client.CreateClusterWithResponse(context.Background(), projectID,  createClusterJSONRequestBody)
     if err != nil {
         panic(err)
     }

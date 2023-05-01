@@ -59,7 +59,7 @@ func main() {
 
     var clusterInfo [][]string
     clusterInfo = append(clusterInfo, []string{"id", "Message"})
-    response, err := client.CreateClusterWithResponse(context.Background(), "1372813089206751438",  createClusterJSONRequestBody)
+    response, err := client.CreateClusterWithResponse(context.Background(), "1111111111111111111",  createClusterJSONRequestBody)
     if err != nil {
         panic(err)
     }

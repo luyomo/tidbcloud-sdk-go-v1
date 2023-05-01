@@ -65,12 +65,5 @@ In this case, the generated file is put into [pkg/tidbcloud](https://github.com/
 workstation$ oapi-codegen -package tidbcloud openapi.yaml > tidbcloud/cli.go
 ```
 
-## Add http digest authentication
-The generated source code does not have any http authentication. Since TiDB Cloud provides the http digest authentication, it has to been implemented into this SDK. Import the [auth.go](https://github.com/luyomo/tidbcloud-sdk-go-v1/blob/master/pkg/tidbcloud/auth.go) and replace all the [return c.Client.Do(req)] with [return c.AddDigestHeader(req)] in the [cli.go](https://github.com/luyomo/tidbcloud-sdk-go-v1/blob/master/pkg/tidbcloud/cli.go) file.
-```
-//return c.Client.Do(req)
-return c.AddDigestHeader(req)
-```
-
 # Hello world - List all the projects
 Please find the first example of [projects list](https://github.com/luyomo/tidbcloud-sdk-go-v1/tree/master/examples/ListProjects).

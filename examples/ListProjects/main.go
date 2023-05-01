@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-    client, err := tidbcloud.NewClientWithResponses("https://api.tidbcloud.com")
+    client, err := tidbcloud.NewDigestClientWithResponses()
     if err != nil {
         panic(err)
     }

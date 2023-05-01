@@ -3,8 +3,10 @@ module github.com/luyomo/tidbcloud-sdk-go-v1
 go 1.19
 
 require (
+	github.com/aws/smithy-go v1.13.5
 	github.com/deepmap/oapi-codegen v1.12.4
 	github.com/getkin/kin-openapi v0.116.0
+	github.com/icholy/digest v0.1.22
 	github.com/labstack/echo/v4 v4.10.2
 	github.com/pingcap/tiup v1.12.1
 	gopkg.in/ini.v1 v1.67.0

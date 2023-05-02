@@ -23,19 +23,25 @@ func main() {
     }
 
     awsKeyID := os.Getenv("AWS_KEY_ID")
-    if awsKey == "" {
+    if awsKeyID == "" {
          panic("No aws key is specified")
     }
 
     awsSecretAccessKey := os.Getenv("AWS_SECRET_ACCESS_KEY")
-    if awsSecret == "" {
+    if awsSecretAccessKey == "" {
          panic("No aws secret is specified")
+    }
+
+    s3uri := os.Getenv("S3_URI")
+    if s3uri == "" {
+         panic("No S3 URI is specified")
     }
 
     client, err := tidbcloud.NewDigestClientWithResponses()
     if err != nil {
         panic(err)
     }
+
     response, err := client.ListClustersOfProjectWithResponse(context.Background(), projectID,  &tidbcloud.ListClustersOfProjectParams{})
     if err != nil {
         panic(err)
@@ -51,14 +57,13 @@ func main() {
     if clusterID == "" {
         panic("No valid cluster id found")
     }
-    fmt.Printf("The cluster id: <%s> \n", clusterID)
 
 
     var createImportTaskJSONRequestBody tidbcloud.CreateImportTaskJSONRequestBody
     createImportTaskJSONRequestBody.Name = ptr.String("import-from-api")
     createImportTaskJSONRequestBody.Spec.Source.Type = "S3"
     createImportTaskJSONRequestBody.Spec.Source.Format.Type = "CSV"
-    createImportTaskJSONRequestBody.Spec.Source.Uri = "s3://jay-ticdc/csvdata/"
+    createImportTaskJSONRequestBody.Spec.Source.Uri = s3uri
     createImportTaskJSONRequestBody.Spec.Source.AwsKeyAccess = &struct{
                  AccessKeyId string `json:"access_key_id"`
                  SecretAccessKey string `json:"secret_access_key"`
@@ -69,16 +74,14 @@ func main() {
         panic(err)
     }
 
-    fmt.Printf("response: <%#v> \n", *resImport.JSON400.Message)
-    statusCode := resImport.StatusCode()
-    fmt.Printf("Status code: %#v \n", statusCode)
-
-//     statusCode := response.StatusCode()
-//     switch statusCode {
-//         case 200:
-//             clusterInfo = append(clusterInfo, []string{response.JSON200.Id, "Succeeded in creating the cluster"})
-//         case 400:
-//             clusterInfo = append(clusterInfo, []string{"-", "Exsited resource"})
-//     }
+     statusCode := resImport.StatusCode()
+     switch statusCode {
+         case 200:
+             fmt.Printf("Started the import job")
+             //clusterInfo = append(clusterInfo, []string{response.JSON200.Id, "Succeeded in creating the cluster"})
+         case 400:
+             fmt.Printf("Failed to import data: %#v \n", *resImport.JSON400.Message)
+             // clusterInfo = append(clusterInfo, []string{"-", "Exsited resource"})
+     }
 //     tui.PrintTable(clusterInfo, true)
 }

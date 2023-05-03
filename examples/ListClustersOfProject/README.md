@@ -1,5 +1,6 @@
 # How to run the example
 ```
+workstation$ export TIDBCLOUD_PROJECT_ID=1111111111111111111
 workstation$ cd tidbcloud-sdk-go-v1/examples/ListClustersOfProject
 workstation$ go run main.go
 Project ID           id                   Name         Cluster Type  Cloud Provider  Region     Create Timestamp  Status  TiDB Version

@@ -7,7 +7,6 @@ import (
 
     "github.com/luyomo/tidbcloud-sdk-go-v1/pkg/tidbcloud"
     "github.com/aws/smithy-go/ptr"
-//    "github.com/pingcap/tiup/pkg/tui"
 )
 
 func main() {
@@ -78,10 +77,7 @@ func main() {
      switch statusCode {
          case 200:
              fmt.Printf("Started the import job")
-             //clusterInfo = append(clusterInfo, []string{response.JSON200.Id, "Succeeded in creating the cluster"})
          case 400:
              fmt.Printf("Failed to import data: %#v \n", *resImport.JSON400.Message)
-             // clusterInfo = append(clusterInfo, []string{"-", "Exsited resource"})
      }
-//     tui.PrintTable(clusterInfo, true)
 }
